@@ -38,18 +38,18 @@
     <div class="cols">
       <div class="col6" data-ng-init="title = instance.title">
         <label>
-          <textarea data-inplace class="title" data-ui-jq="autosize" spellcheck="false" placeholder="Huvudtitel" data-ng-model="title.titleValue"></textarea>
           <span class="lbl">{{ "Huvudtitel" }}</span>
+          <textarea data-inplace class="title" data-ui-jq="autosize" spellcheck="false" data-ng-model="title.titleValue"></textarea>
         </label>
         <label>
-          <textarea data-inplace data-ui-jq="autosize" spellcheck="false" placeholder="Övrig titelinformation" data-ng-model="title.subtitle">{{ title.subtitle }}</textarea>
           <span class="lbl">{{ "Övrig titelinformation" }}</span>
+          <textarea data-inplace data-ui-jq="autosize" spellcheck="false" data-ng-model="title.subtitle">{{ title.subtitle }}</textarea>
         </label>
       </div>
       <div class="col6">
         <label class="error">
-          <textarea data-inplace data-ui-jq="autosize" spellcheck="false" data-ng-model="instance.responsibilityStatement" placeholder="Upphov"></textarea>
           <span class="lbl">{{ "Upphov" }}</span>
+          <textarea data-inplace data-ui-jq="autosize" spellcheck="false" data-ng-model="instance.responsibilityStatement"></textarea>
         </label>
       </div>
     </div>
@@ -58,20 +58,20 @@
     <div class="cols" data-ng-init="work = record.about.instanceOf">
       <div class="col5">
         <label class="ng-binding">
-        <div data-ng-init="editable = !(work.language.langCode)">
-          <div data-ng-hide="editable" data-ng-click="editable=!editable">
-            <span>
-              {{ work.language.prefLabel }}
-              <i data-ng-show="work.language.langCode">({{ work.language.langCode }})</i>
-            </span>
+          <span class="lbl">{{ "Språk" }}</span>
+          <div data-ng-init="editable = !(work.language.langCode)">
+            <div data-ng-hide="editable" data-ng-click="editable=!editable">
+              <span>
+                {{ work.language.prefLabel }}
+                <i data-ng-show="work.language.langCode">({{ work.language.langCode }})</i>
+              </span>
+            </div>
+            <div data-ng-show="editable">
+              <input data-inplace class="input-large authdependant"
+                    data-kitin-autoselect="field"
+                    data-kitin-template="select-language-template" />
+            </div>
           </div>
-          <div data-ng-show="editable">
-            <input data-inplace class="input-large authdependant" type="text" placeholder="Språk"
-                  data-kitin-autoselect="field"
-                  data-kitin-template="select-language-template" />
-          </div>
-        </div>
-         <span class="lbl">{{ "Språk" }}</span>
         </label>
         <script type="text/html" id="select-language-template">
           <div class="auth">
@@ -81,7 +81,7 @@
           </div>
         </script>
       </div>
-      <div class="col7">
+      <div class="col7 todo">
         <div data-ng-show="work.creator"
              onload="subj = work; rel = 'creator'; person = work.creator"
              data-ng-include="'render-person'"></div>
@@ -120,25 +120,25 @@
                       </div>
                       <div class="col2" data-ng-init="title = instance.title">
                         <label>
-                          <input data-inplace type="text" class="input-mini" data-ng-model="instance.birthYear"/>
+                          <input data-inplace class="input-mini" data-ng-model="instance.birthYear"/>
                           <span class="lbl">{{ "Fodelsear" }}</span>
                         </label>
                       </div>
                        <div class="col2" data-ng-init="title = instance.title">     
                         <label>
-                          <input data-inplace type="text" class="input-mini" data-ng-model="instance.deathYear"/>
+                          <input data-inplace class="input-mini" data-ng-model="instance.deathYear"/>
                           <span class="lbl">{{ "Dodsar" }}</span>
                         </label>
                       </div> 
                     </div>
                     <div class="cols">  
                       <div class="col6 multifield">
-                          <label data-ng-repeat="person in instance.hasVersion"><input data-inplace class="input-medium" type="text" data-ng-model="person.controlledLabel"></label>
+                          <label data-ng-repeat="person in instance.hasVersion"><input data-inplace class="input-medium" data-ng-model="person.controlledLabel"></label>
                 <!--
-                          <label><input data-inplace class="input-medium" type="text"></label>
-                          <label><input data-inplace class="input-medium" type="text"></label>
-                          <label><input data-inplace class="input-medium" type="text"></label>
-                          <label><input data-inplace class="input-medium" type="text"></label>
+                          <label><input data-inplace class="input-medium"></label>
+                          <label><input data-inplace class="input-medium"></label>
+                          <label><input data-inplace class="input-medium"></label>
+                          <label><input data-inplace class="input-medium"></label>
                 -->
                           <span class="lbl">{{ "Alternativt namn" }}</span>
                         </label>
@@ -152,7 +152,7 @@
                         </label>
                       </div>
                       <div class="col6 multifield">
-                          <label data-ng-repeat="source in instance.hasForm"><input data-inplace class="input-medium" type="text" data-ng-model="source.label"></label>
+                          <label data-ng-repeat="source in instance.hasForm"><input data-inplace class="input-medium" data-ng-model="source.label"></label>
                           <span class="lbl">{{ "Kalla" }}</span>
 
                       </div>
@@ -177,23 +177,23 @@
         </div>
         <div class="addon" data-ng-show="editable">
           <label>
-            <input data-inplace class="input-mini" type="text" placeholder="Förnamn"
+            <input data-inplace class="input-mini"
                    data-ng-model="person.givenName" data-kitin-autocomplete="person" />
             <span class="lbl">{{ "Förnamn" }}</span>
           </label>
           <label>
-            <input data-inplace class="input-mini" type="text" placeholder="Släktnamn"
+            <input data-inplace class="input-mini" 
                    data-ng-model="person.familyName" data-kitin-autocomplete="person" />
             <span class="lbl">{{ "Släktnamn" }}</span>
           </label>
         </div>
         <div class="addon" data-ng-show="editable">
           <label>
-            <input data-inplace class="input-mini authdependant" type="text" placeholder="ÅÅÅÅ" data-ng-model="person.birthYear" />
+            <input data-inplace class="input-mini authdependant" placeholder="ÅÅÅÅ" data-ng-model="person.birthYear" />
             <span class="lbl">{{ "Född" }}</span>
           </label>
           <label>
-            <input data-inplace class="input-mini authdependant" type="text" placeholder="ÅÅÅÅ" data-ng-model="person.deathYear" />
+            <input data-inplace class="input-mini authdependant" placeholder="ÅÅÅÅ" data-ng-model="person.deathYear" />
             <span class="lbl">{{ "Död" }}</span>
           </label>
           <div data-ng-controller="ModalCtrl">
@@ -216,8 +216,8 @@
     <div class="cols">
       <div class="col6" data-ng-show="instance['@type'] != 'Book'">
         <label>
-          <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="instance.mediaTerm" placeholder="Allmän medieterm">
           <span class="lbl">{{ "Allmän medieterm" }}</span>
+          <input data-inplace class="ng-pristine ng-valid" data-ng-model="instance.mediaTerm">
         </label>
       </div>
     </div>
@@ -228,15 +228,15 @@
           <ng:switch on="identifier.identifierScheme">
             <div data-ng-switch-when="ISBN">
               <label>
-                <input data-inplace name="isbn_name" type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}"
-                      data-isbn-pattern="^$|^[0-9\-xX]*$" isbnvalidator/>
                 <span class="lbl_inline lbl"
                       data-ng-hide="subform.isbn_name.$error.invalid_value || subform.isbn_name.$error.invalid_length">{{ "ISBN" }}</span>
                 <span class="lbl_inline lbl error_label"
                       data-ng-show="subform.isbn_name.$error.invalid_value || subform.isbn_name.$error.invalid_length">{{ "ISBN" }}</span>
                 <span class="error_message" data-ng-show="subform.isbn_name.$error.invalid_value">(Fel numeriskt värde)</span>
                 <span class="error_message" data-ng-show="subform.isbn_name.$error.invalid_length">(Fel längd)</span>
-                <!--<input data-inplace name="isbn_name" type="text" required="true" data-ng-model="instance.isbn" placeholder="ISBN" data-isbn-pattern="^[0-9\-xX]*$" isbnvalidator/>
+                <input data-inplace name="isbn_name" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}"
+                      data-isbn-pattern="^$|^[0-9\-xX]*$" isbnvalidator/>
+                <!--<input data-inplace name="isbn_name" required="true" data-ng-model="instance.isbn" placeholder="ISBN" data-isbn-pattern="^[0-9\-xX]*$" isbnvalidator/>
                 <span class="lbl_inline lbl" data-ng-hide="subform.isbn_name.$error.invalid_value">{{ "ISBN" }}</span>
                 <span class="lbl_inline lbl error_label" data-ng-show="subform.isbn_name.$error.invalid_value">{{ "ISBN" }}</span>
                 <span class="error_message" data-ng-show="subform.isbn_name.$error.invalid_value">(Fel numeriskt värde)</span>-->
@@ -244,18 +244,18 @@
                 <button class="btn-link on-hover" data-ng-click="removeObject(instance, 'identifier', $index)"><i class="fa fa-times"></i></button>
               </label>
               <label>
-                <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="identifier.identifierNote" placeholder="Notering">
                 <span class="lbl">{{ "ISBN-notering" }}</span>
+                <input data-inplace class="ng-pristine ng-valid" data-ng-model="identifier.identifierNote">
               </label>
             </div>
             <div data-ng-switch-default>
               <label>
-                <input data-inplace type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}"/>
                 <span class="lbl">{{ identifier.identifierScheme }}</span>
+                <input data-inplace data-ng-model="identifier.identifierValue"/>
               </label>
               <label>
-                <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="identifier.identifierNote" placeholder="Notering">
                 <span class="lbl">{{ "Notering" }}</span>
+                <input data-inplace class="ng-pristine ng-valid" data-ng-model="identifier.identifierNote">
               </label>
             </div>
           </ng:switch>
@@ -264,19 +264,19 @@
       </div>
       <div class="col2">
         <label>
-          <input data-inplace class="input-medium ng-pristine ng-valid" type="text" data-ng-model="instance.editionStatement.edition" placeholder="Upplaga">
           <span class="lbl">{{ "Upplaga" }}</span>
+          <input data-inplace class="input-medium ng-pristine ng-valid" data-ng-model="instance.editionStatement.edition">
         </label>
       </div>
       <div class="col7">
         <div data-ng-repeat="publication in instance.publication" class="entity">
           <label class="col2">
-            <input data-inplace class="input-medium ng-pristine ng-valid" type="text" data-ng-model="publication.providerName" placeholder="Utgivare förlag">
             <span class="lbl">{{ "Utgivare/förlag" }}</span>
+            <input data-inplace class="input-medium ng-pristine ng-valid" data-ng-model="publication.providerName">
           </label>
           <label class="col2">
-            <input data-inplace class="input-medium ng-pristine ng-valid" type="text" data-ng-model="publication.place.label" placeholder="Utgivningsort">
             <span class="lbl">{{ "Utgivningsplats" }}</span>
+            <input data-inplace class="input-medium ng-pristine ng-valid" data-ng-model="publication.place.label">
           </label>
           <!-- TODO: specify type of place?
           <label>
@@ -285,8 +285,9 @@
           </label>
           -->
           <label class="col1">
-            <input data-inplace class="input-small ng-pristine ng-valid" type="text" data-ng-model="publication.providerDate" placeholder="Utgivningsår">
             <span class="lbl">{{ "Utgivningsår" }}</span>
+            <input data-inplace class="input-small ng-pristine ng-valid" data-ng-model="publication.providerDate">
+            
           </label>
           <label class="col1 last" data-ng-hide="editable">
             <button class="btn-link on-hover" data-ng-click="removeObject(instance, 'publication', $index)"><i class="fa fa-times"></i></button>
@@ -297,14 +298,14 @@
       <div class="col8">
         <div data-ng-repeat="manufacture in instance.manufacture">
           <label>
-            <input data-inplace class="input-medium authdependant" type="text" placeholder="Tryckort" data-ng-model="manufacture.place.label" />
+            <span class="lbl">{{ "Tryckplats" }}</span>
+            <input data-inplace class="input-medium authdependant" data-ng-model="manufacture.place.label" />
             <!--
             <select data-placeholder="Välj ett land" data-ui-select2 data-ng-model="instance.placeOfManufacture.name" style="width:75%">
               <option></option>
               <option data-ng-repeat="(code, name) in countrylist" value="{{ code }}">{{ name }} ({{ code }})</option>
             </select>
             -->
-            <span class="lbl">{{ "Tryckplats" }}</span>
           </label>
         </div>
       </div>
@@ -313,8 +314,8 @@
     <div class="cols">
       <div class="col3" data-ng-show="getTypeDef(instance).term == 'Audiobook'">
         <label>
-          <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="instance.publisherNumber" placeholder="Utgivningsnummer">
           <span class="lbl">{{ "Utgivningsnummer" }}</span>
+          <input data-inplace class="ng-pristine ng-valid" data-ng-model="instance.publisherNumber">
         </label>
       </div>
     </div>
@@ -326,40 +327,40 @@
     <div class="cols">
       <div class="col3">
         <label class="ng-binding">
-          <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="instance.extent" placeholder="Omfång">
           <span class="lbl">{{ "Omfång" }}</span>
+          <input data-inplace class="ng-pristine ng-valid" data-ng-model="instance.extent">
         </label>
       </div>
       <div class="col3">
         <label>
-          <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="instance.dimensions" placeholder="Mått">
           <span class="lbl">{{ "Mått" }}</span>
+          <input data-inplace class="ng-pristine ng-valid" data-ng-model="instance.dimensions">
         </label>
       </div>
       <div class="col3">
         <label>
-          <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="instance.otherPhysicalDetails" placeholder="Fysiska detaljer">
           <span class="lbl">{{ "Fysiska detaljer" }}</span>
+          <input data-inplace class="ng-pristine ng-valid" data-ng-model="instance.otherPhysicalDetails">
         </label>
       </div>
       <div class="col3">
         <label>
-          <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="instance.availability" placeholder="Pris">
           <span class="lbl">{{ "Pris" }}</span>
+          <input data-inplace class="ng-pristine ng-valid" data-ng-model="instance.availability">
         </label>
       </div>
     </div>
     <div class="cols" data-ng-show="getTypeDef(instance).subClassOf == 'DigitalResource'">
       <div class="col3">
         <label>
-          <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="instance.fileType" placeholder="Filtyp">
           <span class="lbl">{{ "Filtyp" }}</span>
+          <input data-inplace class="ng-pristine ng-valid" data-ng-model="instance.fileType">
         </label>
       </div>
       <div class="col3">
         <label>
-          <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="instance.systemRequirements" placeholder="Systemkrav">
           <span class="lbl">{{ "Systemkrav" }}</span>
+          <input data-inplace class="ng-pristine ng-valid" data-ng-model="instance.systemRequirements">
         </label>
       </div>
     </div>
@@ -367,22 +368,22 @@
     <div class="cols">
       <div class="col6">
         <label>
-          <textarea data-inplace data-ui-jq="autosize" spellcheck="false" data-ng-model="instance.listOfContents" placeholder="Formaterad innehållsförteckning"></textarea>
           <span class="lbl">{{ "Formaterad innehållsförteckning" }}</span>
+          <textarea data-inplace data-ui-jq="autosize" spellcheck="false" data-ng-model="instance.listOfContents"></textarea>
         </label>
       </div>
       <div class="col6" data-ng-show="getTypeDef(instance).term == 'Audiobook'">
         <label>
-          <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="instance.contributorNote" placeholder="Medverkande">
           <span class="lbl">{{ "Medverkande" }}</span>
+          <input data-inplace class="ng-pristine ng-valid" data-ng-model="instance.contributorNote">
         </label>
       </div>
     </div>
     <div class="cols">
       <div class="col6">
-          <label>
-          <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="instance.note" placeholder="Allmän anmärkning">
+        <label>
           <span class="lbl">{{ "Allmän anmärkning" }}</span>
+          <input data-inplace class="ng-pristine ng-valid" data-ng-model="instance.note">
         </label>
       </div>
       <div class="col6"></div>
@@ -399,9 +400,9 @@
     <div class="cols">
       <div class="col6">
         <label>
-            <textarea data-inplace data-ui-jq="autosize" spellcheck="false"
-                      data-ng-model="work.summary" placeholder="Sammanfattning"></textarea>
-            <span class="lbl">{{ "Sammanfattning" }}</span>
+          <span class="lbl">{{ "Sammanfattning" }}</span>
+          <textarea data-inplace data-ui-jq="autosize" spellcheck="false" data-ng-model="work.summary"></textarea>
+            
         </label>
       </div>
     </div>

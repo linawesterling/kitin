@@ -92,9 +92,9 @@ body.index #header .searchfield button{height:46px;}
 
 body.login #header .searchfield{display:none;}
 
-.content{position:relative;background:url(/static/img/bg.png);padding:0 36px 24px 36px;overflow:hidden;}
+.content{position:relative;background:url(/static/img/bg.png);padding:0 24px 24px 24px;overflow:hidden;}
 
-.content header{background:url(/static/img/top.png) no-repeat;position:relative;padding:23px 36px 0;overflow:hidden;width:1008px;margin-left:-36px;}
+.content header{background:url(/static/img/top.png) no-repeat;position:relative;padding:23px 36px 0;overflow:hidden;width:1008px;margin-left:-24px;}
 .content.footer { overflow: visible; }
 .content footer {
   background:url(/static/img/bottom.png) no-repeat;
@@ -143,7 +143,7 @@ body.login .content.index header{margin-bottom:60px;}
 
 .content.holdings a {color:@purple;}
 .content.holdings label .lbl {color:@purple;}
-.content section{background:@white; margin: 0 0 12px; padding: 12px;
+.content section{background:@white; margin: 0 0 12px; padding: 12px 24px;
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2);
      -moz-box-shadow: 0 1px 3px rgba(0,0,0,.2);
       box-shadow: 0 1px 3px rgba(0,0,0,.2);
@@ -161,8 +161,8 @@ body.login .content.index header{margin-bottom:60px;}
 }
 div.submit {text-align: right;}
 
-.content section h3{font:bold italic 16px/20px "Droid Serif", georgia,serif; color:@green3; 
-  border-bottom:1px solid @green3; padding-bottom: 2px; }
+.content section h3{font:bold 20px/20px "Droid Serif", georgia,serif; color:#222; 
+  border-bottom:1px solid #444; padding-bottom: 4px;margin-bottom:12px;margin-top:12px }
 
 .content section h2,
 section.nav dt{background:@green3;font:bold 12px/16px "Open Sans", sans-serif; text-transform:uppercase;float:left;
@@ -172,8 +172,10 @@ section.nav dt{background:@green3;font:bold 12px/16px "Open Sans", sans-serif; t
   border-radius: 3px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   -webkit-font-smoothing: antialiased;
-  margin-left:-24px;
+  margin-left:-36px;
+  min-height:16px;
   position:relative;
+  margin-bottom:24px
 }
 
 .content section h2 i,
@@ -347,7 +349,6 @@ input[type="color"],
   font-size: 16px;
   line-height: 22px;
   color: #444;
-  background:#eee;
   vertical-align: middle;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
@@ -388,28 +389,17 @@ input[type="color"]:focus,
           box-shadow: none;
 }
 
-label{margin-bottom:18px;border-left:2px solid #ddd;padding-left:8px;}
+label{margin-bottom:12px;}
 
-label textarea,
-label input,
-label select{width:468px;font-size:16px;padding:1px 0 0;height:22px;
-  -webkit-transition:background-color 0.02s ease-out; margin-left:-2px; padding-left:2px;
-}
-
-label textarea{line-height:22px;}
-label select{height:26px;}
+.todo{display:none!important}
 
 .multifield{margin-bottom:18px}
 .multifield label{margin-bottom:0}
-.multifield .lbl{padding-left:8px;border-left:2px solid #ddd;margin-top:0;padding-top:2px}
+.multifield .lbl{margin-top:0;padding-top:2px}
 
 .col6 label textarea,
 .col6 label input,
 .col6 label select{width:450px; padding-right:18px;}
-
-.col4 label textarea,
-.col4 label input,
-.col4 label select{width:282px; padding-right: 18px;}
 
 .col3 label textarea,
 .col3 label input,
@@ -440,7 +430,7 @@ label select{height:26px;}
 .col6 .split label input,
 .col6 .split label select{width:166px;padding-right: 18px;}
 
-.entity { border-left: 2px solid #ddd; margin-bottom: 18px; overflow: auto; }
+.entity {margin-bottom: 18px; overflow: auto; }
 .entity:hover,
 .entity.focus { border-left-color:@green3; }
 
@@ -467,14 +457,22 @@ input :-moz-placeholder { color:#ccc; font-style:italic; font-size:14px; }/*FF18
 .holdings :focus::-moz-placeholder { color:@purple-light; }/*FF19>*/
 .holdings :focus:-ms-input-placeholder:focus { color:@purple-light; }
 
-label:hover,
-label.focus{border-left-color:@green3;}
+label textarea,
+label input,
+label select{font-size:16px;padding:3px 18px 0 6px;height:26px;}
+
+label textarea,
+label input{border:1px solid #ccc;}
+
+label textarea{line-height:22px;}
+label select{height:26px;}
 
 label:hover textarea,
-label:hover input{background:#f8f8f8 url(/static/img/pen-grey.png) no-repeat 98.5% 7px;color:#000;border-color:#f8f8f8;}
+label:hover input{background:#fff url(/static/img/pen-grey.png) no-repeat 98.5% 9px;color:#000;border-color:#bbb}
 
 label input:focus,
-label textarea:focus{background:#c0f1e6 url(/static/img/pen-black.png) no-repeat 98.5% 7px;color:#000;border: 1px solid #c0f1e6;}
+label textarea:focus{background:#fff url(/static/img/pen-black.png) no-repeat 98.5% 9px;color:#000;border: 1px solid #888;
+  box-shadow:rgba(0,0,0,.1) 0 0 2px}
 
 .holdings label:hover,
 .holdings label.focus{border-left-color:@purple;}
@@ -490,9 +488,9 @@ label input.ng-invalid,
 label select.ng-invalid {background-color:#ffd4db!important;border-color:#ffd4db!important;}
 
 label textarea{overflow:hidden;resize:none;color:#444;}
-label textarea.title{font-size:22px;height:28px;line-height:26px;font-weight:bold;}
+label textarea.title{font-weight:bold;}
 
-.lbl{display:block;font-size:12px;color:@green3;margin-top:2px;line-height:16px;}
+.lbl{display:block;font-size:10px;color:#888;margin-bottom:2px;line-height:16px;text-transform:uppercase;letter-spacing:.5px}
 .lbl-suggest{display:block;font-size:12px;color:@green3;margin-top:2px;line-height:16px;float:left;clear:both;}
 
 .holdings .lbl {color:@purple;}
@@ -513,7 +511,7 @@ label .lbl_inline { display: inline; }
 
 .subject-delimiter {color:@grey2;}
 
-.suggestion-subjects{border-left:2px solid #ddd;padding-left:8px;background:#f6f3ee url(/static/img/pat1.png);padding-top:8px;padding-bottom:8px;overflow:hidden;}
+.suggestion-subjects{background:#f6f3ee url(/static/img/pat1.png);padding-top:8px;padding-bottom:8px;overflow:hidden;}
 .suggestion-subjects ul{list-style:none;margin:0;padding:0;}
 .suggestion-subjects li{margin: 0 4px 4px 0;float:left;padding:4px 8px;background:rgba(20,200,160,.35);}
 .suggestion-subjects li .icon{color:@green3;}
@@ -525,7 +523,7 @@ div.loading > b { display: none; }
 .holdings > label.dynamic-subjects em.subject{padding:0 4px;background:#c0f1e6}
 .holdings > label.dynamic-subjects em.subject .icon{color:@green3;}
 */
-.suggestion-classification{border-left:2px solid #ddd;padding-left:8px;background:#f6f3ee url(/static/img/pat1.png);padding-top:8px;padding-bottom:8px;overflow:hidden;}
+.suggestion-classification{background:#f6f3ee url(/static/img/pat1.png);padding-top:8px;padding-bottom:8px;overflow:hidden;}
 .suggestion-classification ul{list-style:none;margin:0;padding:0;}
 .suggestion-classification li{margin: 0 4px 4px 0;float:left;padding:4px 8px;background:rgba(167, 86, 167, 0.35);}
 .suggestion-classification li .icon{color:@purple;}
@@ -673,7 +671,7 @@ section.holdings-list{background:#f7f3ee;}
   line-height: 32px;
 }
 
-section.holdings ul li{list-style: none;}
+section.holdings ul li { list-style: none; }
 
 a.beta-blocker {text-decoration: none; cursor:default;} /*block unfinished elements, should not be in final release*/
 
@@ -725,7 +723,7 @@ a.beta-blocker {text-decoration: none; cursor:default;} /*block unfinished eleme
 }
 
 .select2-container .select2-choice:hover {
-	background: #f8f8f8;
+  background: #f8f8f8;
 }
 .select2-container .select2-choice div {
     background: none;

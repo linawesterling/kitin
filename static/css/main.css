@@ -289,7 +289,7 @@ body.login #header .searchfield {
 .content {
   position: relative;
   background: url(/static/img/bg.png);
-  padding: 0 36px 24px 36px;
+  padding: 0 24px 24px 24px;
   overflow: hidden;
 }
 .content header {
@@ -298,7 +298,7 @@ body.login #header .searchfield {
   padding: 23px 36px 0;
   overflow: hidden;
   width: 1008px;
-  margin-left: -36px;
+  margin-left: -24px;
 }
 .content.footer {
   overflow: visible;
@@ -416,7 +416,7 @@ body.login .content.index header {
 .content section {
   background: #ffffff;
   margin: 0 0 12px;
-  padding: 12px;
+  padding: 12px 24px;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -437,10 +437,12 @@ div.submit {
   text-align: right;
 }
 .content section h3 {
-  font: bold italic 16px/20px "Droid Serif", georgia, serif;
-  color: #1a8f72;
-  border-bottom: 1px solid #1a8f72;
-  padding-bottom: 2px;
+  font: bold 20px/20px "Droid Serif", georgia, serif;
+  color: #222;
+  border-bottom: 1px solid #444;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+  margin-top: 12px;
 }
 .content section h2,
 section.nav dt {
@@ -455,8 +457,10 @@ section.nav dt {
   border-radius: 3px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   -webkit-font-smoothing: antialiased;
-  margin-left: -24px;
+  margin-left: -36px;
+  min-height: 16px;
   position: relative;
+  margin-bottom: 24px;
 }
 .content section h2 i,
 section.nav dt i {
@@ -818,7 +822,6 @@ input[type="color"],
   font-size: 16px;
   line-height: 22px;
   color: #444;
-  background: #eee;
   vertical-align: middle;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -858,26 +861,10 @@ input[type="color"]:focus,
   box-shadow: none;
 }
 label {
-  margin-bottom: 18px;
-  border-left: 2px solid #ddd;
-  padding-left: 8px;
+  margin-bottom: 12px;
 }
-label textarea,
-label input,
-label select {
-  width: 468px;
-  font-size: 16px;
-  padding: 1px 0 0;
-  height: 22px;
-  -webkit-transition: background-color 0.02s ease-out;
-  margin-left: -2px;
-  padding-left: 2px;
-}
-label textarea {
-  line-height: 22px;
-}
-label select {
-  height: 26px;
+.todo {
+  display: none !important;
 }
 .multifield {
   margin-bottom: 18px;
@@ -886,8 +873,6 @@ label select {
   margin-bottom: 0;
 }
 .multifield .lbl {
-  padding-left: 8px;
-  border-left: 2px solid #ddd;
   margin-top: 0;
   padding-top: 2px;
 }
@@ -895,12 +880,6 @@ label select {
 .col6 label input,
 .col6 label select {
   width: 450px;
-  padding-right: 18px;
-}
-.col4 label textarea,
-.col4 label input,
-.col4 label select {
-  width: 282px;
   padding-right: 18px;
 }
 .col3 label textarea,
@@ -955,7 +934,6 @@ label select {
   padding-right: 18px;
 }
 .entity {
-  border-left: 2px solid #ddd;
   margin-bottom: 18px;
   overflow: auto;
 }
@@ -1038,21 +1016,35 @@ input :-moz-placeholder {
 .holdings :focus:-ms-input-placeholder:focus {
   color: #dda0dd;
 }
-label:hover,
-label.focus {
-  border-left-color: #1a8f72;
+label textarea,
+label input,
+label select {
+  font-size: 16px;
+  padding: 3px 18px 0 6px;
+  height: 26px;
+}
+label textarea,
+label input {
+  border: 1px solid #ccc;
+}
+label textarea {
+  line-height: 22px;
+}
+label select {
+  height: 26px;
 }
 label:hover textarea,
 label:hover input {
-  background: #f8f8f8 url(/static/img/pen-grey.png) no-repeat 98.5% 7px;
+  background: #ffffff url(/static/img/pen-grey.png) no-repeat 98.5% 9px;
   color: #000;
-  border-color: #f8f8f8;
+  border-color: #bbbbbb;
 }
 label input:focus,
 label textarea:focus {
-  background: #c0f1e6 url(/static/img/pen-black.png) no-repeat 98.5% 7px;
+  background: #ffffff url(/static/img/pen-black.png) no-repeat 98.5% 9px;
   color: #000;
-  border: 1px solid #c0f1e6;
+  border: 1px solid #888;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px;
 }
 .holdings label:hover,
 .holdings label.focus {
@@ -1079,17 +1071,16 @@ label textarea {
   color: #444;
 }
 label textarea.title {
-  font-size: 22px;
-  height: 28px;
-  line-height: 26px;
   font-weight: bold;
 }
 .lbl {
   display: block;
-  font-size: 12px;
-  color: #1a8f72;
-  margin-top: 2px;
+  font-size: 10px;
+  color: #888;
+  margin-bottom: 2px;
   line-height: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 .lbl-suggest {
   display: block;
@@ -1133,8 +1124,6 @@ label .lbl_inline {
   color: #c7c7c7;
 }
 .suggestion-subjects {
-  border-left: 2px solid #ddd;
-  padding-left: 8px;
   background: #f6f3ee url(/static/img/pat1.png);
   padding-top: 8px;
   padding-bottom: 8px;
@@ -1172,8 +1161,6 @@ div.loading > b {
 .holdings > label.dynamic-subjects em.subject .icon{color:@green3;}
 */
 .suggestion-classification {
-  border-left: 2px solid #ddd;
-  padding-left: 8px;
   background: #f6f3ee url(/static/img/pat1.png);
   padding-top: 8px;
   padding-bottom: 8px;
@@ -1604,4 +1591,4 @@ h4.modal-title {
 .clickable {
   cursor: pointer;
 }
-/*# sourceMappingURL=/static/css/main.css.map */
+/*# sourceMappingURL=main.css.map */

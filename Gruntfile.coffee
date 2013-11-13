@@ -41,7 +41,7 @@ module.exports = (grunt) ->
       options:
         sourceMap: true
         sourceMapFilename: 'main.css.map'
-        sourceMapRootpath: '/static/css/'
+        #sourceMapRootpath: 'static/css/'
         #cleancss: true (disabled for less source maps to work properly)
       src:
         expand: true
