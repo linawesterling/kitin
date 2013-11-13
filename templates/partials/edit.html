@@ -56,7 +56,7 @@
 
     <h3>Verk</h3>
     <div class="cols" data-ng-init="work = record.about.instanceOf">
-      <div class="col5">
+      <div class="col3">
         <label class="ng-binding">
           <span class="lbl">{{ "Språk" }}</span>
           <div data-ng-init="editable = !(work.language.langCode)">
@@ -67,7 +67,7 @@
               </span>
             </div>
             <div data-ng-show="editable">
-              <input data-inplace class="input-large authdependant"
+              <input data-inplace class="authdependant"
                     data-kitin-autoselect="field"
                     data-kitin-template="select-language-template" />
             </div>

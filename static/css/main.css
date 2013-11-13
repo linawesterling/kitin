@@ -437,12 +437,19 @@ div.submit {
   text-align: right;
 }
 .content section h3 {
-  font: bold 20px/20px "Droid Serif", georgia, serif;
-  color: #222;
-  border-bottom: 1px solid #444;
-  padding-bottom: 4px;
+  font: italic normal 14px/20px "Droid Serif", georgia, serif;
+  color: #1a8f72;
   margin-bottom: 12px;
   margin-top: 12px;
+  padding: 0 0;
+}
+.content section h3:before {
+  content: '\25A0';
+  font-style: normal;
+  font-size: 30px;
+  position: relative;
+  top: 4px;
+  margin-right: 4px;
 }
 .content section h2,
 section.nav dt {
@@ -879,13 +886,13 @@ label {
 .col6 label textarea,
 .col6 label input,
 .col6 label select {
-  width: 450px;
+  width: 454px;
   padding-right: 18px;
 }
 .col3 label textarea,
 .col3 label input,
 .col3 label select {
-  width: 198px;
+  width: 202px;
   padding-right: 18px;
 }
 .col3 label:hover textarea,
@@ -897,8 +904,14 @@ label {
 .col2 label textarea,
 .col2 label input,
 .col2 label select {
-  width: 74px;
+  width: 118px;
   padding-right: 18px;
+}
+.col2 label:hover textarea,
+.col2 label:hover input,
+.col2 label input:focus,
+.col2 label textarea:focus {
+  background-position: 95.5% 7px;
 }
 .split {
   overflow: hidden;
@@ -1023,6 +1036,10 @@ label select {
   padding: 3px 18px 0 6px;
   height: 26px;
 }
+label input {
+  padding-top: 0;
+  height: 29px;
+}
 label textarea,
 label input {
   border: 1px solid #ccc;
@@ -1045,6 +1062,7 @@ label textarea:focus {
   color: #000;
   border: 1px solid #888;
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px;
+  outline: none;
 }
 .holdings label:hover,
 .holdings label.focus {
