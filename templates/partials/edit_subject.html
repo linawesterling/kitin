@@ -1,7 +1,6 @@
 {% raw %}
 
 <div class="col6">
-  <h3>Ämnesord</h3>
 
   <div data-ng-repeat="(notation, container) in schemeContainer.byScheme" class="scheme"
        data-ng-init="scheme = conceptSchemes[notation] || {'label': schemeNotation}">
@@ -82,7 +81,6 @@
 </div>
 
 <div class="col6">
-  <h3>Klassifikation</h3>
   <!--
   <ul class="inline">
   <li data-ng-repeat="topicalTerm in record.topicalTerm"><a class="btn btn-small" href="{{ topicalTerm }}"><i class="icon-tag"></i> {{ topicalTerm }}</a></li>

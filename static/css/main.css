@@ -468,6 +468,7 @@ section.nav dt {
   min-height: 16px;
   position: relative;
   margin-bottom: 24px;
+  margin-top: 24px;
 }
 .content section h2 i,
 section.nav dt i {
@@ -701,9 +702,7 @@ section.dash {
   float: left;
   margin-right: 24px;
 }
-.col1.last {
-  width: 72px;
-  float: left;
+.lastcol {
   margin-right: 0;
 }
 .content.search > .cols {
@@ -946,9 +945,21 @@ label {
   width: 166px;
   padding-right: 18px;
 }
+.col3 label.deletable .lbl {
+  display: block;
+}
+.col3 label.deletable input {
+  width: 160px;
+}
+.col2 label.deletable input {
+  width: 100px;
+}
 .entity {
   margin-bottom: 18px;
   overflow: auto;
+}
+.entity.addmore {
+  margin-bottom: 4px;
 }
 .entity:hover,
 .entity.focus {
@@ -1002,18 +1013,18 @@ input :-moz-placeholder {
   font-size: 14px;
 }
 :focus::-webkit-input-placeholder {
-  color: #78ceba;
+  color: #eee;
 }
 :focus:-moz-placeholder:focus {
-  color: #78ceba;
+  color: #eee;
 }
 /*FF18<*/
 :focus::-moz-placeholder {
-  color: #78ceba;
+  color: #eee;
 }
 /*FF19>*/
 :focus:-ms-input-placeholder:focus {
-  color: #78ceba;
+  color: #eee;
 }
 .holdings :focus::-webkit-input-placeholder {
   color: #dda0dd;
@@ -1205,14 +1216,14 @@ div.loading > b {
   visibility: visible;
 }
 .add-thing.btn-link {
-  color: #c7c7c7;
+  padding: 0;
+  font-size: 12px;
+  margin-top: 3px;
 }
-.cols:hover .add-thing.btn-link {
-  color: #1a8f72;
-}
-.cols:hover .add-thing.btn-link:hover {
-  color: #106351;
-}
+/*
+.cols:hover .add-thing.btn-link { color: @green3; }
+.cols:hover .add-thing.btn-link:hover { color: @green4; }
+*/
 /* bootstrap dropdown */
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -1340,6 +1351,12 @@ div.loading > b {
 }
 .btn-link:hover {
   color: #106351;
+}
+.btn-link.deleter {
+  color: #c7c7c7;
+}
+.btn-link.deleter:hover {
+  color: #fa1963;
 }
 .holdings .btn-link {
   color: #683568;
