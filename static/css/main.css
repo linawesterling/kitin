@@ -1046,6 +1046,7 @@ label select {
   font-size: 16px;
   padding: 3px 18px 0 6px;
   height: 26px;
+  border-radius: 2px;
 }
 label input {
   padding-top: 0;
@@ -1063,30 +1064,19 @@ label select {
 }
 label:hover textarea,
 label:hover input {
-  background: #ffffff url(/static/img/pen-grey.png) no-repeat 98.5% 9px;
   color: #000;
   border-color: #bbbbbb;
 }
 label input:focus,
 label textarea:focus {
-  background: #ffffff url(/static/img/pen-black.png) no-repeat 98.5% 9px;
   color: #000;
   border: 1px solid #888;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0 2px;
   outline: none;
 }
 .holdings label:hover,
 .holdings label.focus {
   border-left-color: #683568;
-}
-.holdings label input:focus,
-.holdings label textarea:focus {
-  background: #e0c4e0 url(/static/img/pen-black.png) no-repeat 98.5% 7px;
-  border: 1px solid #e0c4e0;
-}
-label:hover textarea.title,
-label textarea.title:focus {
-  background-position: 98% 9px;
 }
 label textarea.ng-invalid,
 label input.ng-invalid,

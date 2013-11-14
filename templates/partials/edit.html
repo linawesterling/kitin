@@ -35,22 +35,24 @@
   <section id="instance" name="instance" data-ng-repeat="instance in [record.about]">
     <ng-form name="subform">
     <!-- <h2 data-ng-click="cycleType($event, instance)"> <span>{{ getTypeDef(instance).label_sv }}</span><i></i></h2> -->
-    <h2>Bokverk<i></i></h2>
+    <h2>Titel &amp; upphov<i></i></h2>
     <div class="cols">
       <div class="col6" data-ng-init="title = instance.title">
         <label>
           <span class="lbl">{{ "Huvudtitel" }}</span>
           <textarea data-inplace class="title" data-ui-jq="autosize" spellcheck="false" data-ng-model="title.titleValue"></textarea>
         </label>
+      </div>
+      <div class="col6">
         <label>
-          <span class="lbl">{{ "Övrig titelinformation" }}</span>
-          <textarea data-inplace data-ui-jq="autosize" spellcheck="false" data-ng-model="title.subtitle">{{ title.subtitle }}</textarea>
+          <span class="lbl">{{ "Upphov" }}</span>
+          <textarea data-inplace data-ui-jq="autosize" spellcheck="false" data-ng-model="instance.responsibilityStatement"></textarea>
         </label>
       </div>
       <div class="col6">
-        <label class="error">
-          <span class="lbl">{{ "Upphov" }}</span>
-          <textarea data-inplace data-ui-jq="autosize" spellcheck="false" data-ng-model="instance.responsibilityStatement"></textarea>
+        <label>
+          <span class="lbl">{{ "Övrig titelinformation" }}</span>
+          <textarea data-inplace data-ui-jq="autosize" spellcheck="false" data-ng-model="title.subtitle">{{ title.subtitle }}</textarea>
         </label>
       </div>
     </div>
@@ -211,7 +213,7 @@
       </div>
     </script>
 
-    <h2>Utgivning och tillverkning<i></i></h2>
+    <h2>Utgivning &amp; tillverkning<i></i></h2>
     <div class="cols">
       <div class="col6" data-ng-show="instance['@type'] != 'Book'">
         <label>

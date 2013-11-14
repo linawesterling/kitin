@@ -472,7 +472,7 @@ input :-moz-placeholder { color:#ccc; font-style:italic; font-size:14px; }/*FF18
 
 label textarea,
 label input,
-label select{font-size:16px;padding:3px 18px 0 6px;height:26px;}
+label select{font-size:16px;padding:3px 18px 0 6px;height:26px;border-radius:2px}
 
 label input{padding-top:0;height:29px}
 
@@ -483,20 +483,16 @@ label textarea{line-height:22px;}
 label select{height:26px;}
 
 label:hover textarea,
-label:hover input{background:#fff url(/static/img/pen-grey.png) no-repeat 98.5% 9px;color:#000;border-color:#bbb}
+label:hover input{color:#000;border-color:#bbb}
 
 label input:focus,
-label textarea:focus{background:#fff url(/static/img/pen-black.png) no-repeat 98.5% 9px;color:#000;border: 1px solid #888;
-  box-shadow:rgba(0,0,0,.1) 0 0 2px;outline:none}
+label textarea:focus{color:#000;border: 1px solid #888; box-shadow:rgba(0,0,0,.3) 0 0 2px;outline:none}
 
 .holdings label:hover,
 .holdings label.focus{border-left-color:@purple;}
 
 .holdings label input:focus,
-.holdings label textarea:focus{background:#e0c4e0 url(/static/img/pen-black.png) no-repeat 98.5% 7px; border: 1px solid #e0c4e0;}
-
-label:hover textarea.title,
-label textarea.title:focus{background-position:98% 9px;}
+.holdings label textarea:focus{}
 
 label textarea.ng-invalid,
 label input.ng-invalid,
