@@ -242,36 +242,46 @@
                   <span class="error_message" data-ng-show="subform.isbn_name.$error.invalid_value">(Fel numeriskt värde)</span>
                   <span class="error_message" data-ng-show="subform.isbn_name.$error.invalid_length">(Fel längd)</span>
                   -->
-                  <span class="lbl">{{ "ISBN" }}</span>
+                  <span class="lbl">{{ "ISBN" }}</span> <!-- Labels for column -->
                 </td>
-                <td><span class="lbl">{{ "ISBN-notering" }}</span></td>
+                <td>
+                  <span class="lbl">{{ "ISBN-notering" }}</span> <!-- Labels for column -->
+                </td>
               </tr>
             </tfoot>
             <tbody>
               <tr data-ng-repeat="identifier in instance.identifier">
-                <td>
-                  <ng:switch on="identifier.identifierScheme">
-                    <div data-ng-switch-when="ISBN">
-                      <label>
-                        <input data-inplace name="isbn_name" type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}" data-isbn-pattern="^$|^[0-9\-xX]*$" isbnvalidator/>
-                        <!-- TODO
-                          <span class="lbl">{{ identifier.identifierScheme }}</span>
-                        -->
-                      </label>
-                    </div>
-                    <div data-ng-switch-default>
-                      <label>
-                        <input data-inplace type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}"/>
-                        <!-- TODO
-                          <span class="lbl">{{ "Notering" }}</span>
-                        -->
-                      </label>
-                    </div>
+                <ng:switch on="identifier.identifierScheme">
+                  <td>
+                    <label data-ng-switch-when="ISBN">
+                      <input data-inplace name="isbn_name" type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}" data-isbn-pattern="^$|^[0-9\-xX]*$" isbnvalidator/>
+                    </label>
+                    <label data-ng-switch-default>
+                      <input data-inplace type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}"/>
+                      <!-- TODO: switch label
+                        <span class="lbl">{{ identifier.identifierScheme }}</span>
+                      -->
+                    </label>
+                  </td>
+                  <td>
+                    <label data-ng-switch-when="ISBN">
+                      <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="identifier.identifierNote" placeholder="Notering">
+                      <!-- TODO
+                        <span class="lbl">{{ "ISBN-notering" }}</span>
+                      -->
+                    </label>
+                    <label data-ng-switch-default>
+                      <input data-inplace type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}"/>
+                      <!-- TODO
+                        <span class="lbl">{{ "Notering" }}</span>
+                      -->
+                    </label>
                   </ng>
                 </td>
               </tr>
             </tbody>
           </table>
+          <button class="btn-link on-hover" data-ng-click="removeObject(instance, 'identifier', $index)"><i class="fa fa-times"></i></button>
         </div><!-- /datatable -->
 
       </div>
