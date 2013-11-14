@@ -414,7 +414,7 @@ body.login .content.index header {
   color: #683568;
 }
 .content section {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.4);
   margin: 0 0 12px;
   padding: 12px 24px;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -1052,8 +1052,9 @@ label input {
   height: 29px;
 }
 label textarea,
-label input {
-  border: 1px solid #ccc;
+label input,
+label input[type="text"] {
+  border: 1px solid #fff;
 }
 label textarea {
   line-height: 22px;
