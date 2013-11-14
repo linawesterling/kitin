@@ -211,7 +211,7 @@ a:hover {
   top: 82px;
   z-index: 2;
 }
-#header .searchfield input {
+#header .searchfield input[type="text"] {
   width: 500px;
   border: 1px solid #bbb;
   padding: 6px 10px 6px;
@@ -229,19 +229,19 @@ a:hover {
   border-right-width: 0;
   -webkit-transition: all ease-out 0.05s;
 }
-#header .searchfield input:focus {
+#header .searchfield input[type="text"]:focus {
   border-color: #777777 #ffffff #aaaaaa #777777;
 }
-#header .searchfield input:focus::-webkit-input-placeholder {
+#header .searchfield input[type="text"]:focus::-webkit-input-placeholder {
   color: #ddd;
 }
-#header .searchfield input:focus:-moz-placeholder:focus {
+#header .searchfield input[type="text"]:focus:-moz-placeholder:focus {
   color: #ddd;
 }
-#header .searchfield input:focus::-moz-placeholder:focus {
+#header .searchfield input[type="text"]:focus::-moz-placeholder:focus {
   color: #ddd;
 }
-#header .searchfield input:focus:-ms-input-placeholder:focus {
+#header .searchfield input[type="text"]:focus:-ms-input-placeholder:focus {
   color: #ddd;
 }
 #header .searchfield :focus:-moz-placeholder:focus {
@@ -269,7 +269,7 @@ a:hover {
 #header .searchfield button:hover {
   background-color: #197961;
 }
-#header .searchfield input,
+#header .searchfield input[type="text"],
 #header .searchfield button {
   float: left;
 }
@@ -277,7 +277,7 @@ body.index #header .searchfield {
   left: 248px;
   top: 190px;
 }
-body.index #header .searchfield input {
+body.index #header .searchfield input[type="text"] {
   padding: 10px 16px;
 }
 body.index #header .searchfield button {
@@ -883,34 +883,19 @@ label {
   padding-top: 2px;
 }
 .col6 label textarea,
-.col6 label input,
+.col6 label input[type="text"],
 .col6 label select {
   width: 454px;
-  padding-right: 18px;
 }
 .col3 label textarea,
-.col3 label input,
+.col3 label input[type="text"],
 .col3 label select {
   width: 202px;
-  padding-right: 18px;
-}
-.col3 label:hover textarea,
-.col3 label:hover input,
-.col3 label input:focus,
-.col3 label textarea:focus {
-  background-position: 97.5% 7px;
 }
 .col2 label textarea,
-.col2 label input,
+.col2 label input[type="text"],
 .col2 label select {
   width: 118px;
-  padding-right: 18px;
-}
-.col2 label:hover textarea,
-.col2 label:hover input,
-.col2 label input:focus,
-.col2 label textarea:focus {
-  background-position: 95.5% 7px;
 }
 .split {
   overflow: hidden;
@@ -925,10 +910,9 @@ label {
   margin-left: 0;
 }
 .col3 .split label textarea,
-.col3 .split label input,
+.col3 .split label input[type="text"],
 .col3 .split label select {
   width: 74px;
-  padding-right: 18px;
 }
 .col6 .split label {
   float: left;
@@ -940,18 +924,17 @@ label {
   margin-left: 0;
 }
 .col6 .split label textarea,
-.col6 .split label input,
+.col6 .split label input[type="text"],
 .col6 .split label select {
   width: 166px;
-  padding-right: 18px;
 }
 .col3 label.deletable .lbl {
   display: block;
 }
-.col3 label.deletable input {
+.col3 label.deletable input[type="text"] {
   width: 160px;
 }
-.col2 label.deletable input {
+.col2 label.deletable input[type="text"] {
   width: 100px;
 }
 .entity {
@@ -970,10 +953,18 @@ label {
   margin-bottom: 0;
 }
 .entity .addon label,
-.entity .addon input {
+.entity .addon input[type="text"] {
   float: left;
   width: 74px;
-  padding-right: 18px;
+}
+.datatable td {
+  padding: 0 6px 0 0;
+}
+.datatable label {
+  margin-bottom: 6px;
+}
+.datatable label input[type="text"] {
+  width: 94%;
 }
 span.authorized {
   float: right;
@@ -984,7 +975,7 @@ label ::-webkit-input-placeholder {
   font-style: italic;
   font-size: 14px;
 }
-input::-webkit-input-placeholder {
+input[type="text"]::-webkit-input-placeholder {
   color: #ccc;
   font-style: italic;
   font-size: 14px;
@@ -995,7 +986,7 @@ label :-moz-placeholder {
   font-size: 14px;
 }
 /*FF18<*/
-input :-moz-placeholder {
+input[type="text"] :-moz-placeholder {
   color: #ccc;
   font-style: italic;
   font-size: 14px;
@@ -1041,19 +1032,19 @@ input :-moz-placeholder {
   color: #dda0dd;
 }
 label textarea,
-label input,
+label input[type="text"],
 label select {
   font-size: 16px;
-  padding: 3px 18px 0 6px;
+  padding: 3px 6px 0 6px;
   height: 26px;
   border-radius: 2px;
 }
-label input {
+label input[type="text"] {
   padding-top: 0;
   height: 29px;
 }
 label textarea,
-label input {
+label input[type="text"] {
   border: 1px solid #ccc;
 }
 label textarea {
@@ -1063,11 +1054,11 @@ label select {
   height: 26px;
 }
 label:hover textarea,
-label:hover input {
+label:hover input[type="text"] {
   color: #000;
   border-color: #bbbbbb;
 }
-label input:focus,
+label input[type="text"]:focus,
 label textarea:focus {
   color: #000;
   border: 1px solid #888;
@@ -1079,7 +1070,7 @@ label textarea:focus {
   border-left-color: #683568;
 }
 label textarea.ng-invalid,
-label input.ng-invalid,
+label input[type="text"].ng-invalid,
 label select.ng-invalid {
   background-color: #ffd4db!important;
   border-color: #ffd4db!important;
