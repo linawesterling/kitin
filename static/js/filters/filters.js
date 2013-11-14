@@ -24,6 +24,12 @@ kitin.filter('chop', function() {
   };
 });
 
+kitin.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
+
 kitin.filter('chunk', function() {
   return function(toChunk) {
     return String(toChunk).replace(/\B(?=(\d{3})+(?!\d))/g, " ");

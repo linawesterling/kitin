@@ -221,45 +221,59 @@
       </div>
     </div>
     <div class="cols">
-      <div class="col3">
+      <div class="col6">
+        <div class="datatable table2">
+          <table>
+            <thead>
+              <tr>
+                <td colspan="3">
+                  <button class="add-thing btn-link" data-ng-click="addObject(instance, 'identifier', 'ISBN')">{{ 'Lägg till ISBN' }} <i class="fa fa-plus-circle"></i></button>
+                </td>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td>
+                  <!-- TODO move error handing
+                  <span class="lbl_inline lbl"
+                        data-ng-hide="subform.isbn_name.$error.invalid_value || subform.isbn_name.$error.invalid_length">{{ "ISBN" }}</span>
+                  <span class="lbl_inline lbl error_label"
+                        data-ng-show="subform.isbn_name.$error.invalid_value || subform.isbn_name.$error.invalid_length">{{ "ISBN" }}</span>
+                  <span class="error_message" data-ng-show="subform.isbn_name.$error.invalid_value">(Fel numeriskt värde)</span>
+                  <span class="error_message" data-ng-show="subform.isbn_name.$error.invalid_length">(Fel längd)</span>
+                  -->
+                  <span class="lbl">{{ "ISBN" }}</span>
+                </td>
+                <td><span class="lbl">{{ "ISBN-notering" }}</span></td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr data-ng-repeat="identifier in instance.identifier">
+                <td>
+                  <ng:switch on="identifier.identifierScheme">
+                    <div data-ng-switch-when="ISBN">
+                      <label>
+                        <input data-inplace name="isbn_name" type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}" data-isbn-pattern="^$|^[0-9\-xX]*$" isbnvalidator/>
+                        <!-- TODO
+                          <span class="lbl">{{ identifier.identifierScheme }}</span>
+                        -->
+                      </label>
+                    </div>
+                    <div data-ng-switch-default>
+                      <label>
+                        <input data-inplace type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}"/>
+                        <!-- TODO
+                          <span class="lbl">{{ "Notering" }}</span>
+                        -->
+                      </label>
+                    </div>
+                  </ng>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- /datatable -->
 
-        <div data-ng-repeat="identifier in instance.identifier" class="entity">
-          <ng:switch on="identifier.identifierScheme">
-            <div data-ng-switch-when="ISBN">
-              <label>
-                <input data-inplace name="isbn_name" type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}"
-                      data-isbn-pattern="^$|^[0-9\-xX]*$" isbnvalidator/>
-                <span class="lbl_inline lbl"
-                      data-ng-hide="subform.isbn_name.$error.invalid_value || subform.isbn_name.$error.invalid_length">{{ "ISBN" }}</span>
-                <span class="lbl_inline lbl error_label"
-                      data-ng-show="subform.isbn_name.$error.invalid_value || subform.isbn_name.$error.invalid_length">{{ "ISBN" }}</span>
-                <span class="error_message" data-ng-show="subform.isbn_name.$error.invalid_value">(Fel numeriskt värde)</span>
-                <span class="error_message" data-ng-show="subform.isbn_name.$error.invalid_length">(Fel längd)</span>
-                <!--<input data-inplace name="isbn_name" type="text" required="true" data-ng-model="instance.isbn" placeholder="ISBN" data-isbn-pattern="^[0-9\-xX]*$" isbnvalidator/>
-                <span class="lbl_inline lbl" data-ng-hide="subform.isbn_name.$error.invalid_value">{{ "ISBN" }}</span>
-                <span class="lbl_inline lbl error_label" data-ng-show="subform.isbn_name.$error.invalid_value">{{ "ISBN" }}</span>
-                <span class="error_message" data-ng-show="subform.isbn_name.$error.invalid_value">(Fel numeriskt värde)</span>-->
-                <!--<span class="error_message" data-ng-show="subform.isbn_name.$error.invalid_length">(Fel längd)</span>-->
-                <button class="btn-link on-hover" data-ng-click="removeObject(instance, 'identifier', $index)"><i class="fa fa-times"></i></button>
-              </label>
-              <label>
-                <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="identifier.identifierNote" placeholder="Notering">
-                <span class="lbl">{{ "ISBN-notering" }}</span>
-              </label>
-            </div>
-            <div data-ng-switch-default>
-              <label>
-                <input data-inplace type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}"/>
-                <span class="lbl">{{ identifier.identifierScheme }}</span>
-              </label>
-              <label>
-                <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="identifier.identifierNote" placeholder="Notering">
-                <span class="lbl">{{ "Notering" }}</span>
-              </label>
-            </div>
-          </ng:switch>
-        </div>
-        <button class="add-thing btn-link" data-ng-click="addObject(instance, 'identifier', 'ISBN')">{{ 'Lägg till ISBN' }} <i class="fa fa-plus-circle"></i></button>
       </div>
       <div class="col3">
         <label>
@@ -267,40 +281,54 @@
           <span class="lbl">{{ "Upplaga" }}</span>
         </label>
       </div>
+
       <div class="col6">
-        <div data-ng-repeat="publication in instance.publication" class="entity">
-          <div class="col2">
-            <label class="col2">
-              <input data-inplace class="input-medium ng-pristine ng-valid" type="text" data-ng-model="publication.providerName" placeholder="Utgivare förlag">
-              <span class="lbl">{{ "Utgivare/förlag" }}</span>
-            </label>
-          </div>
-          <div class="col2">
-            <label class="col2">
-              <input data-inplace class="input-medium ng-pristine ng-valid" type="text" data-ng-model="publication.place.label" placeholder="Utgivningsort">
-              <span class="lbl">{{ "Utgivningsort" }}</span>
-            </label>
-          </div>
-          <!-- TODO: specify type of place?
-          <label>
-            <... data-placeholder="Välj ett land" data-ng-model="record.about.instanceOf.country" ... >
-            <span class="lbl">{{ "Utgivningsland" }}</span>
-          </label>
-          -->
-          <div class="col2 lastcol">
-            <label class="col1">
-              <input data-inplace class="input-small ng-pristine ng-valid" type="text" data-ng-model="publication.providerDate" placeholder="Utgivningsår">
-              <span class="lbl">{{ "Utgivningsår" }}</span>
-            </label>
-          </div>
-          <!--
-          <label class="col1 last" data-ng-hide="editable">
-            <button class="btn-link on-hover" data-ng-click="removeObject(instance, 'publication', $index)"><i class="fa fa-times"></i></button>
-          </label>
-          -->
-        </div>
-        <button class="add-thing btn-link" data-ng-click="addObject(instance, 'publication', 'ProviderEvent')">{{ 'Lägg till utgivning' }} <i class="fa fa-plus-circle"></i></button>
-      </div>
+        <div class="datatable table3">
+          <table>
+            <thead>
+              <tr>
+                <td colspan="4">
+                  <button class="add-thing btn-link" data-ng-click="addObject(instance, 'publication', 'ProviderEvent')">
+                    <i class="fa fa-plus"></i> {{ 'Lägg till utgivning' }}
+                  </button>
+                </td>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td><span class="lbl">{{ "Utgivare/förlag" }}</span></td>
+                <td><span class="lbl">{{ "Utgivningsort" }}</span></td>
+                <td><span class="lbl">{{ "Utgivningsår" }}</span></td>
+                <td></td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr data-ng-repeat="publication in instance.publication | reverse">
+                <td>
+                  <label><input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="publication.providerName" placeholder="Utgivare förlag"></label>
+                </td>
+                <td>
+                  <label><input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="publication.place.label" placeholder="Utgivningsort"></label>
+                </td>
+                <!-- TODO: specify type of place?
+                <label>
+                  <... data-placeholder="Välj ett land" data-ng-model="record.about.instanceOf.country" ... >
+                  <span class="lbl">{{ "Utgivningsland" }}</span>
+                </label>
+                -->
+                <td>
+                  <label><input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="publication.providerDate" placeholder="ÅÅÅÅ"></label>
+                </td>
+                <td class="actioncol">
+                  <div data-ng-hide="editable">
+                    <button class="btn-link on-hover" data-ng-click="removeObject(instance, 'publication', $index)"><i class="fa fa-times"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- /datatable -->
+      </div><!-- /col6 -->
       <div class="col8">
         <div data-ng-repeat="manufacture in instance.manufacture">
           <label>
