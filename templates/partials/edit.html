@@ -34,7 +34,8 @@
 
   <section id="instance" name="instance" data-ng-repeat="instance in [record.about]">
     <ng-form name="subform">
-    <h2 data-ng-click="cycleType($event, instance)"> <span>{{ getTypeDef(instance).label_sv }}</span><i></i></h2>
+    <!--<h2 data-ng-click="cycleType($event, instance)"> <span>{{ getTypeDef(instance).label_sv }}</span><i></i></h2>-->
+    <h2>Titel &amp; upphov<i></i></h2>
     <div class="cols">
       <div class="col6" data-ng-init="title = instance.title">
         <label>
@@ -53,10 +54,8 @@
         </label>
       </div>
     </div>
-
-    <h3>Verk</h3>
     <div class="cols" data-ng-init="work = record.about.instanceOf">
-      <div class="col5">
+      <div class="col6">
         <label class="ng-binding">
         <div data-ng-init="editable = !(work.language.langCode)">
           <div data-ng-hide="editable" data-ng-click="editable=!editable">
@@ -81,7 +80,7 @@
           </div>
         </script>
       </div>
-      <div class="col7">
+      <div class="col7 todo">
         <div data-ng-show="work.creator"
              onload="subj = work; rel = 'creator'; person = work.creator"
              data-ng-include="'render-person'"></div>
@@ -212,7 +211,7 @@
       </div>
     </script>
 
-    <h3>Utgivning och tillverkning</h3>
+    <h2>Utgivning &amp; tillverkning<i></i></h2>
     <div class="cols">
       <div class="col6" data-ng-show="instance['@type'] != 'Book'">
         <label>
@@ -262,35 +261,43 @@
         </div>
         <button class="add-thing btn-link" data-ng-click="addObject(instance, 'identifier', 'ISBN')">{{ 'Lägg till ISBN' }} <i class="fa fa-plus-circle"></i></button>
       </div>
-      <div class="col2">
+      <div class="col3">
         <label>
           <input data-inplace class="input-medium ng-pristine ng-valid" type="text" data-ng-model="instance.editionStatement.edition" placeholder="Upplaga">
           <span class="lbl">{{ "Upplaga" }}</span>
         </label>
       </div>
-      <div class="col7">
+      <div class="col6">
         <div data-ng-repeat="publication in instance.publication" class="entity">
-          <label class="col2">
-            <input data-inplace class="input-medium ng-pristine ng-valid" type="text" data-ng-model="publication.providerName" placeholder="Utgivare förlag">
-            <span class="lbl">{{ "Utgivare/förlag" }}</span>
-          </label>
-          <label class="col2">
-            <input data-inplace class="input-medium ng-pristine ng-valid" type="text" data-ng-model="publication.place.label" placeholder="Utgivningsort">
-            <span class="lbl">{{ "Utgivningsplats" }}</span>
-          </label>
+          <div class="col2">
+            <label class="col2">
+              <input data-inplace class="input-medium ng-pristine ng-valid" type="text" data-ng-model="publication.providerName" placeholder="Utgivare förlag">
+              <span class="lbl">{{ "Utgivare/förlag" }}</span>
+            </label>
+          </div>
+          <div class="col2">
+            <label class="col2">
+              <input data-inplace class="input-medium ng-pristine ng-valid" type="text" data-ng-model="publication.place.label" placeholder="Utgivningsort">
+              <span class="lbl">{{ "Utgivningsort" }}</span>
+            </label>
+          </div>
           <!-- TODO: specify type of place?
           <label>
             <... data-placeholder="Välj ett land" data-ng-model="record.about.instanceOf.country" ... >
             <span class="lbl">{{ "Utgivningsland" }}</span>
           </label>
           -->
-          <label class="col1">
-            <input data-inplace class="input-small ng-pristine ng-valid" type="text" data-ng-model="publication.providerDate" placeholder="Utgivningsår">
-            <span class="lbl">{{ "Utgivningsår" }}</span>
-          </label>
+          <div class="col2 lastcol">
+            <label class="col1">
+              <input data-inplace class="input-small ng-pristine ng-valid" type="text" data-ng-model="publication.providerDate" placeholder="Utgivningsår">
+              <span class="lbl">{{ "Utgivningsår" }}</span>
+            </label>
+          </div>
+          <!--
           <label class="col1 last" data-ng-hide="editable">
             <button class="btn-link on-hover" data-ng-click="removeObject(instance, 'publication', $index)"><i class="fa fa-times"></i></button>
           </label>
+          -->
         </div>
         <button class="add-thing btn-link" data-ng-click="addObject(instance, 'publication', 'ProviderEvent')">{{ 'Lägg till utgivning' }} <i class="fa fa-plus-circle"></i></button>
       </div>
@@ -322,7 +329,7 @@
     <!-- TODO: partially toggle digital details
     <div data-ng-show="getTypeDef(instance).subClassOf != 'DigitalResource'">
     -->
-    <h3>Fysisk beskrivning</h3>
+    <h2>Fysisk beskrivning<i></i></h2>
     <div class="cols">
       <div class="col3">
         <label class="ng-binding">
@@ -363,7 +370,7 @@
         </label>
       </div>
     </div>
-  <h3>{{ "Anmärkningar" }}</h3>
+  <h2>{{ "Anmärkningar" }}<i></i></h2>
     <div class="cols">
       <div class="col6">
         <label>
@@ -395,7 +402,7 @@
          data-ng-include="'/partials/edit_subject'" onload="work = record.about.instanceOf">
     </div>
 
-    <h3>{{ "Anmärkningar" }}</h3>
+    <h2>{{ "Anmärkningar" }}<i></i></h2>
     <div class="cols">
       <div class="col6">
         <label>

@@ -690,9 +690,7 @@ section.dash {
   float: left;
   margin-right: 24px;
 }
-.col1.last {
-  width: 72px;
-  float: left;
+.lastcol {
   margin-right: 0;
 }
 .content.search > .cols {
@@ -824,6 +822,7 @@ input[type="color"],
   -moz-border-radius: 0;
   border-radius: 0;
   background-color: #ffffff;
+  background: yellow!important;
   border: 1px solid #ffffff;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -864,6 +863,7 @@ label {
 }
 label textarea,
 label input,
+label input[type="text"],
 label select {
   width: 468px;
   font-size: 16px;
@@ -893,30 +893,36 @@ label select {
 }
 .col6 label textarea,
 .col6 label input,
+.col6 label input[type="text"],
 .col6 label select {
   width: 450px;
   padding-right: 18px;
 }
 .col4 label textarea,
 .col4 label input,
+.col4 label input[type="text"],
 .col4 label select {
   width: 282px;
   padding-right: 18px;
 }
 .col3 label textarea,
 .col3 label input,
+.col3 label input[type="text"],
 .col3 label select {
-  width: 198px;
+  width: 202px;
   padding-right: 18px;
 }
 .col3 label:hover textarea,
 .col3 label:hover input,
+.col3 label:hover input[type="text"],
 .col3 label input:focus,
+.col3 label input[type="text"]:focus,
 .col3 label textarea:focus {
   background-position: 97.5% 7px;
 }
 .col2 label textarea,
 .col2 label input,
+.col2 label input[type="text"],
 .col2 label select {
   width: 74px;
   padding-right: 18px;
@@ -935,6 +941,7 @@ label select {
 }
 .col3 .split label textarea,
 .col3 .split label input,
+.col3 .split label input[type="text"],
 .col3 .split label select {
   width: 74px;
   padding-right: 18px;
@@ -950,6 +957,7 @@ label select {
 }
 .col6 .split label textarea,
 .col6 .split label input,
+.col6 .split label input[type="text"],
 .col6 .split label select {
   width: 166px;
   padding-right: 18px;
@@ -968,7 +976,8 @@ label select {
   margin-bottom: 0;
 }
 .entity .addon label,
-.entity .addon input {
+.entity .addon input,
+.entity .addon input [type="text"] {
   float: left;
   width: 74px;
   padding-right: 18px;
@@ -976,6 +985,9 @@ label select {
 span.authorized {
   float: right;
   color: #1a8f72;
+}
+.todo {
+  display: none !important;
 }
 label ::-webkit-input-placeholder {
   color: #ccc;
