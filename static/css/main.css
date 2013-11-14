@@ -857,8 +857,6 @@ input[type="color"]:focus,
 }
 label {
   margin-bottom: 18px;
-  border-left: 2px solid #ddd;
-  padding-left: 8px;
 }
 label.noline {
   padding-left: 0;
@@ -870,11 +868,12 @@ label input[type="text"],
 label select {
   width: 468px;
   font-size: 16px;
-  padding: 1px 0 0;
+  padding: 1px 0 2px;
   height: 22px;
   -webkit-transition: background-color 0.02s ease-out;
   margin-left: -2px;
   padding-left: 2px;
+  border-bottom: 1px dotted #bbb;
 }
 label textarea {
   line-height: 22px;
@@ -889,8 +888,6 @@ label select {
   margin-bottom: 0;
 }
 .multifield .lbl {
-  padding-left: 8px;
-  border-left: 2px solid #ddd;
   margin-top: 0;
   padding-top: 2px;
 }
@@ -966,10 +963,8 @@ label select {
   padding-right: 18px;
 }
 .entity {
-  border-left: 2px solid #ddd;
   margin-bottom: 18px;
   overflow: auto;
-  padding-left: 8px;
 }
 .entity:hover,
 .entity.focus {
@@ -988,8 +983,6 @@ label select {
   padding-right: 18px;
 }
 .datatable {
-  border-left: 2px solid #ddd;
-  padding-left: 8px;
   margin-bottom: 18px;
 }
 .datatable table {
@@ -1085,22 +1078,22 @@ label:hover textarea,
 label:hover input {
   background: #f8f8f8 url(/static/img/pen-grey.png) no-repeat 98.5% 7px;
   color: #000;
-  border-color: #f8f8f8;
 }
 label input:focus,
+label input[type="text"]:focus,
 label textarea:focus {
   background: #c0f1e6 url(/static/img/pen-black.png) no-repeat 98.5% 7px;
   color: #000;
-  border: 1px solid #c0f1e6;
+  border-bottom: 1px dotted #bbbbbb;
 }
 .holdings label:hover,
 .holdings label.focus {
   border-left-color: #683568;
 }
 .holdings label input:focus,
+.holdings label input[type="text"]:focus,
 .holdings label textarea:focus {
   background: #e0c4e0 url(/static/img/pen-black.png) no-repeat 98.5% 7px;
-  border: 1px solid #e0c4e0;
 }
 label:hover textarea.title,
 label textarea.title:focus {
@@ -1173,8 +1166,6 @@ label .lbl_inline {
   color: #c7c7c7;
 }
 .suggestion-subjects {
-  border-left: 2px solid #ddd;
-  padding-left: 8px;
   background: #f6f3ee url(/static/img/pat1.png);
   padding-top: 8px;
   padding-bottom: 8px;
@@ -1212,8 +1203,6 @@ div.loading > b {
 .holdings > label.dynamic-subjects em.subject .icon{color:@green3;}
 */
 .suggestion-classification {
-  border-left: 2px solid #ddd;
-  padding-left: 8px;
   background: #f6f3ee url(/static/img/pat1.png);
   padding-top: 8px;
   padding-bottom: 8px;

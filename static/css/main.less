@@ -389,14 +389,15 @@ input[type="color"]:focus,
           box-shadow: none;
 }
 
-label{margin-bottom:18px;border-left:2px solid #ddd;padding-left:8px;}
+label{margin-bottom:18px;}
 label.noline{ padding-left: 0; border-left: none}
 
 label textarea,
 label input,
 label input[type="text"],
-label select{width:468px;font-size:16px;padding:1px 0 0;height:22px;
+label select{width:468px;font-size:16px;padding:1px 0 2px;height:22px;
   -webkit-transition:background-color 0.02s ease-out; margin-left:-2px; padding-left:2px;
+  border-bottom:1px dotted #bbb;
 }
 
 label textarea{line-height:22px;}
@@ -404,7 +405,7 @@ label select{height:26px;}
 
 .multifield{margin-bottom:18px}
 .multifield label{margin-bottom:0}
-.multifield .lbl{padding-left:8px;border-left:2px solid #ddd;margin-top:0;padding-top:2px}
+.multifield .lbl{margin-top:0;padding-top:2px}
 
 .col6 label textarea,
 .col6 label input,
@@ -451,7 +452,7 @@ label select{height:26px;}
 .col6 .split label input[type="text"],
 .col6 .split label select{width:166px;padding-right: 18px;}
 
-.entity { border-left: 2px solid #ddd; margin-bottom: 18px; overflow: auto; padding-left:8px }
+.entity { margin-bottom: 18px; overflow: auto;}
 .entity:hover,
 .entity.focus { border-left-color:@green3; }
 
@@ -460,7 +461,7 @@ label select{height:26px;}
 .entity .addon input,
 .entity .addon input[type="text"]{ float: left; width: 74px;padding-right: 18px; }
 
-.datatable{border-left:2px solid #ddd; padding-left:8px;margin-bottom:18px;}
+.datatable{margin-bottom:18px;}
 .datatable table{width:100%}
 .datatable table label{width:100%;padding-left:0;border:none;margin-bottom:0}
 .datatable table label input,
@@ -492,16 +493,18 @@ label:hover,
 label.focus{border-left-color:@green3;}
 
 label:hover textarea,
-label:hover input{background:#f8f8f8 url(/static/img/pen-grey.png) no-repeat 98.5% 7px;color:#000;border-color:#f8f8f8;}
+label:hover input{background:#f8f8f8 url(/static/img/pen-grey.png) no-repeat 98.5% 7px;color:#000;}
 
 label input:focus,
-label textarea:focus{background:#c0f1e6 url(/static/img/pen-black.png) no-repeat 98.5% 7px;color:#000;border: 1px solid #c0f1e6;}
+label input[type="text"]:focus,
+label textarea:focus{background:#c0f1e6 url(/static/img/pen-black.png) no-repeat 98.5% 7px;color:#000;border-bottom:1px dotted #bbb}
 
 .holdings label:hover,
 .holdings label.focus{border-left-color:@purple;}
 
 .holdings label input:focus,
-.holdings label textarea:focus{background:#e0c4e0 url(/static/img/pen-black.png) no-repeat 98.5% 7px; border: 1px solid #e0c4e0;}
+.holdings label input[type="text"]:focus,
+.holdings label textarea:focus{background:#e0c4e0 url(/static/img/pen-black.png) no-repeat 98.5% 7px;}
 
 label:hover textarea.title,
 label textarea.title:focus{background-position:98% 9px;}
@@ -534,7 +537,7 @@ label .lbl_inline { display: inline; }
 
 .subject-delimiter {color:@grey2;}
 
-.suggestion-subjects{border-left:2px solid #ddd;padding-left:8px;background:#f6f3ee url(/static/img/pat1.png);padding-top:8px;padding-bottom:8px;overflow:hidden;}
+.suggestion-subjects{ background:#f6f3ee url(/static/img/pat1.png);padding-top:8px;padding-bottom:8px;overflow:hidden;}
 .suggestion-subjects ul{list-style:none;margin:0;padding:0;}
 .suggestion-subjects li{margin: 0 4px 4px 0;float:left;padding:4px 8px;background:rgba(20,200,160,.35);}
 .suggestion-subjects li .icon{color:@green3;}
@@ -546,7 +549,7 @@ div.loading > b { display: none; }
 .holdings > label.dynamic-subjects em.subject{padding:0 4px;background:#c0f1e6}
 .holdings > label.dynamic-subjects em.subject .icon{color:@green3;}
 */
-.suggestion-classification{border-left:2px solid #ddd;padding-left:8px;background:#f6f3ee url(/static/img/pat1.png);padding-top:8px;padding-bottom:8px;overflow:hidden;}
+.suggestion-classification{ background:#f6f3ee url(/static/img/pat1.png);padding-top:8px;padding-bottom:8px;overflow:hidden;}
 .suggestion-classification ul{list-style:none;margin:0;padding:0;}
 .suggestion-classification li{margin: 0 4px 4px 0;float:left;padding:4px 8px;background:rgba(167, 86, 167, 0.35);}
 .suggestion-classification li .icon{color:@purple;}
