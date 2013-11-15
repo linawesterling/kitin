@@ -17,7 +17,7 @@ kitin.directive('inplace', function () {
       scope.triggerModified();
       scope.$apply();
     });
-    
+
     // David: added blur event
     var fn = function() {
       if (scope.editable) {
@@ -25,7 +25,7 @@ kitin.directive('inplace', function () {
         scope.$apply();
       }
       this.blur();
-    }
+    };
     elm.jkey('enter', fn);
     elm.on('blur', fn);
   };

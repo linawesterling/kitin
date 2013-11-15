@@ -70,3 +70,25 @@ $(document).on("click", function (evt) {
     $('#grid').toggle();
   }
 });
+
+// Temp duck-type
+(function($factory) {
+  $factory = function() {
+    var offset = this.dom.$elem.offset();
+    var height = this.dom.$results.outerHeight();
+    var totalHeight = $(window).outerHeight();
+    var inputBottom = offset.top - $(window).scrollTop() + this.dom.$elem.outerHeight();
+    var bottomIfDown = inputBottom + height;
+    // Set autocomplete results at the bottom of input
+    var position = {top: inputBottom, left: offset.left};
+    if (bottomIfDown > totalHeight) {
+        // Try to set autocomplete results at the top of input
+        var topIfUp = offset.top - height;
+        if (topIfUp >= 0) {
+            position.top = topIfUp;
+        }
+    }
+    this.dom.$results.css(position);
+  };
+}($.Autocompleter.prototype.position));
+
