@@ -975,6 +975,11 @@ label {
   box-sizing: border-box;
   width: 100%;
 }
+.datatable td.controls .btn-link {
+  padding: 0;
+  position: relative;
+  top: -3px;
+}
 span.authorized {
   float: right;
   color: #1a8f72;
@@ -1042,18 +1047,27 @@ input[type="text"] :-moz-placeholder {
 }
 label textarea,
 label input[type="text"],
-label select {
-  font-size: 14px;
+label select,
+.fakeinput {
+  font-size: 15px;
   padding: 2px 5px 0 5px;
-  height: 24px;
+  height: 25px;
   border-radius: 2px;
+}
+.fakeinput {
+  color: #444;
+  cursor: text;
+  padding-top: 3px;
+  height: 24px;
 }
 label input[type="text"] {
   padding-top: 0;
   height: 25px;
+  padding-bottom: 2px;
 }
 label textarea,
-label input[type="text"] {
+label input[type="text"],
+.fakeinput {
   border: 1px solid #ccc;
 }
 label textarea {
@@ -1343,7 +1357,7 @@ div.loading > b {
   color: #106351;
 }
 .btn-link.deleter {
-  color: #c7c7c7;
+  color: #adadad;
 }
 .btn-link.deleter:hover {
   color: #fa1963;
@@ -1453,13 +1467,13 @@ a.beta-blocker {
 /* Autocomplete */
 .acResults {
   width: 466px;
-  border: 1px solid #ccc;
+  border: 1px solid #aaa;
   border-top-width: 0;
   background: #ffffff;
-  -webkit-box-shadow: 0 0px 6px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0px 6px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0px 6px rgba(0, 0, 0, 0.2);
-  margin: -1px 0 0 1px;
+  -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
+  margin: -1px 0 0 0;
   z-index: 1000;
 }
 .acResults ul li {
@@ -1467,8 +1481,8 @@ a.beta-blocker {
   padding: 0;
 }
 .acResults > ul > li {
-  border-top: 1px solid #ddd;
-  padding: 10px 12px;
+  border-top: 1px solid #aaa;
+  padding: 6px 8px;
   margin: 0;
 }
 .acResults li {
@@ -1478,6 +1492,7 @@ a.beta-blocker {
   padding: 0 28px 0 0;
   margin: 0;
   position: relative;
+  font-size: 14px !important;
 }
 .acResults h4 .name {
   color: #191919;

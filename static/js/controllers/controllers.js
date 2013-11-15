@@ -329,7 +329,7 @@ kitin.controller('EditCtrl', function($scope, $http, $routeParams, $timeout, rec
     collection.push(obj);
     // Focus on added row
     if (target) {
-      var $dataTable = angular.element('[ng-target='+target+']');
+      var $dataTable = angular.element('[data-ng-target='+target+']');
       $timeout(function() {
         $dataTable.find('tr:last input:first').focus();
       });

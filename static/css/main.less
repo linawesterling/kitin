@@ -451,6 +451,7 @@ label{margin-bottom:10px;}
   box-sizing: border-box;
   width:100%;
 }
+.datatable td.controls .btn-link{padding:0;position:relative;top:-3px}
 
 span.authorized{float:right;color:@green3}
 
@@ -473,12 +474,16 @@ input[type="text"] :-moz-placeholder { color:#ccc; font-style:italic; font-size:
 
 label textarea,
 label input[type="text"],
-label select{font-size:14px;padding:2px 5px 0 5px;height:24px;border-radius:2px}
+label select,
+.fakeinput{font-size:15px;padding:2px 5px 0 5px;height:25px;border-radius:2px}
 
-label input[type="text"]{padding-top:0;height:25px}
+.fakeinput{color:#444;cursor:text;padding-top:3px;height:24px}
+
+label input[type="text"]{padding-top:0;height:25px;padding-bottom:2px}
 
 label textarea,
-label input[type="text"]{border:1px solid #ccc;}
+label input[type="text"],
+.fakeinput{border:1px solid #ccc;}
 
 label textarea{line-height:22px;}
 label select{height:26px;}
@@ -631,7 +636,7 @@ div.loading > b { display: none; }
 .btn-link{color:@green3; outline: none; border:0;}
 .btn-link:hover{color:@green4;}
 
-.btn-link.deleter{color:@grey2}
+.btn-link.deleter{color:@grey3}
 .btn-link.deleter:hover{color:@pink}
 
 .holdings .btn-link{color:@purple;}
@@ -694,17 +699,17 @@ a.beta-blocker {text-decoration: none; cursor:default;} /*block unfinished eleme
 
 /* Autocomplete */
 
-.acResults {width:466px;border:1px solid #ccc;border-top-width:0;background:@white;
-  -webkit-box-shadow: 0 0px 6px rgba(0,0,0,.2);
-  -moz-box-shadow: 0 0px 6px rgba(0,0,0,.2);
-  box-shadow: 0 0px 6px rgba(0,0,0,.2);
-  margin:-1px 0 0 1px;
+.acResults {width:466px;border:1px solid #aaa;border-top-width:0;background:@white;
+  -webkit-box-shadow: 0 0px 3px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 0px 3px rgba(0,0,0,.1);
+  box-shadow: 0 0px 3px rgba(0,0,0,.1);
+  margin:-1px 0 0 0;
   z-index: 1000;
 }
 .acResults ul li{margin:6px 0 0;padding:0;}
-.acResults>ul>li {border-top:1px solid #ddd;padding: 10px 12px;margin:0;}
+.acResults>ul>li {border-top:1px solid #aaa;padding: 6px 8px;margin:0;}
 .acResults li{font-family:"Open Sans", arial,sans-serif!important;}
-.acResults h4{padding:0 28px 0 0;margin:0;position:relative;}
+.acResults h4{padding:0 28px 0 0;margin:0;position:relative;font-size:14px!important}
 .acResults h4 .name {color:@very-dark-grey;}
 .acResults h4 .date{color:#aaa;color:rgba(0,0,0,.5);margin-left:4px;font-weight:normal;}
 .acResults h4 .what{position:absolute;right:0;top:-3px;color:@green2;font-size:11px;font-weight:normal;}

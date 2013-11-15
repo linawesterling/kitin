@@ -17,13 +17,17 @@ kitin.directive('inplace', function () {
       scope.triggerModified();
       scope.$apply();
     });
-    elm.jkey('enter', function () {
+    
+    // David: added blur event
+    var fn = function() {
       if (scope.editable) {
         scope.editable = false;
         scope.$apply();
       }
       this.blur();
-    });
+    }
+    elm.jkey('enter', fn);
+    elm.on('blur', fn);
   };
 });
 
