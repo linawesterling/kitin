@@ -320,13 +320,20 @@ kitin.controller('EditCtrl', function($scope, $http, $routeParams, $timeout, rec
     var obj = subj[rel] = createObject(type);
   };
 
-  $scope.addObject = function(subj, rel, type) {
+  $scope.addObject = function(subj, rel, type, target) {
     var collection = subj[rel];
     if (typeof collection === 'undefined') {
       collection = subj[rel] = [];
     }
     var obj = createObject(type);
     collection.push(obj);
+    // Focus on added row
+    if (target) {
+      var $dataTable = angular.element('[ng-target='+target+']');
+      $timeout(function() {
+        $dataTable.find('tr:last input:first').focus();
+      });
+    }
   };
 
   $scope.removeObject = function(subj, rel, index) {

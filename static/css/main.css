@@ -885,17 +885,17 @@ label {
 .col6 label textarea,
 .col6 label input[type="text"],
 .col6 label select {
-  width: 454px;
+  width: 466px;
 }
 .col3 label textarea,
 .col3 label input[type="text"],
 .col3 label select {
-  width: 202px;
+  width: 214px;
 }
 .col2 label textarea,
 .col2 label input[type="text"],
 .col2 label select {
-  width: 118px;
+  width: 130px;
 }
 .split {
   overflow: hidden;
@@ -957,14 +957,23 @@ label {
   float: left;
   width: 74px;
 }
+.datatable table {
+  width: 100%;
+}
 .datatable td {
-  padding: 0 6px 0 0;
+  padding: 0 0 0 6px;
+}
+.datatable td:first-child {
+  padding: 0;
 }
 .datatable label {
   margin-bottom: 6px;
 }
 .datatable label input[type="text"] {
-  width: 94%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
 }
 span.authorized {
   float: right;
@@ -1034,14 +1043,14 @@ input[type="text"] :-moz-placeholder {
 label textarea,
 label input[type="text"],
 label select {
-  font-size: 16px;
-  padding: 3px 6px 0 6px;
-  height: 26px;
+  font-size: 14px;
+  padding: 2px 5px 0 5px;
+  height: 24px;
   border-radius: 2px;
 }
 label input[type="text"] {
   padding-top: 0;
-  height: 29px;
+  height: 25px;
 }
 label textarea,
 label input[type="text"] {
@@ -1085,9 +1094,9 @@ label textarea.title {
 }
 .lbl {
   display: block;
-  font-size: 10px;
+  font-size: 9px;
   color: #888;
-  margin-bottom: 2px;
+  margin-bottom: 0;
   line-height: 16px;
   text-transform: uppercase;
   letter-spacing: 0.5px;

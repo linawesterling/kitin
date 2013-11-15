@@ -36,7 +36,7 @@
     <ng-form name="subform">
     <!-- <h2 data-ng-click="cycleType($event, instance)"> <span>{{ getTypeDef(instance).label_sv }}</span><i></i></h2> -->
     <h2>Titel &amp; upphov<i></i></h2>
-    <div class="cols">
+    <div class="cols" data-ng-init="work = record.about.instanceOf">
       <div class="col6" data-ng-init="title = instance.title">
         <label>
           <span class="lbl">{{ "Huvudtitel" }}</span>
@@ -55,9 +55,7 @@
           <textarea data-inplace data-ui-jq="autosize" spellcheck="false" data-ng-model="title.subtitle">{{ title.subtitle }}</textarea>
         </label>
       </div>
-    </div>
-    <div class="cols" data-ng-init="work = record.about.instanceOf">
-      <div class="col3">
+      <div class="col6">
         <label class="ng-binding">
           <span class="lbl">{{ "Språk" }}</span>
           <div data-ng-init="editable = !(work.language.langCode)">
@@ -82,17 +80,17 @@
           </div>
         </script>
       </div>
-      <div class="col7 todo">
-        <div data-ng-show="work.creator"
-             onload="subj = work; rel = 'creator'; person = work.creator"
-             data-ng-include="'render-person'"></div>
-        <button class="add-thing btn-link" data-ng-click="newObject(work, 'creator', 'Person')">{{ 'Huvuduppslag' }}
-          <i data-ng-hide="work.creator" class="fa fa-plus-circle"></i></button>
-        <hr />
-        <div data-ng-repeat="person in work.contributorList"
-             onload="subj = work; rel = 'contributorList'" data-ng-include="'render-person'"></div>
-        <button class="add-thing btn-link" data-ng-click="addObject(work, 'contributorList', 'Person')">{{ 'Biuppslag' }} <i class="fa fa-plus-circle"></i></button>
-      </div>
+    </div>
+    <div class="todo">
+      <div data-ng-show="work.creator"
+           onload="subj = work; rel = 'creator'; person = work.creator"
+           data-ng-include="'render-person'"></div>
+      <button class="add-thing btn-link" data-ng-click="newObject(work, 'creator', 'Person')">{{ 'Huvuduppslag' }}
+        <i data-ng-hide="work.creator" class="fa fa-plus-circle"></i></button>
+      <hr />
+      <div data-ng-repeat="person in work.contributorList"
+           onload="subj = work; rel = 'contributorList'" data-ng-include="'render-person'"></div>
+      <button class="add-thing btn-link" data-ng-click="addObject(work, 'contributorList', 'Person')">{{ 'Biuppslag' }} <i class="fa fa-plus-circle"></i></button>
     </div>
 
     <script type='text/ng-template' id="modal-edit-auth"> 
@@ -224,7 +222,7 @@
     </div>
     <div class="cols">
       <div class="col6">
-        <div class="datatable">
+        <div class="datatable" ng-target="isbnTable">
           <table>
             <thead>
               <tr>
@@ -247,7 +245,7 @@
             <tfoot>
               <tr>
                 <td colspan="3">
-                  <button class="add-thing btn-link" data-ng-click="addObject(instance, 'identifier', 'ISBN')"><i class="fa fa-plus"></i> {{ 'Lägg till ISBN' }} </button>
+                  <button class="add-thing btn-link" data-ng-click="addObject(instance, 'identifier', 'ISBN', 'isbnTable')"><i class="fa fa-plus"></i> {{ 'Lägg till ISBN' }} </button>
                 </td>
               </tr>
             </tfoot>
@@ -257,24 +255,18 @@
                   <label data-ng-switch-when="ISBN">
                     <input type="text" data-inplace name="isbn_name" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}" data-isbn-pattern="^$|^[0-9\-xX]*$" isbnvalidator/>
                   </label>
-                </td>
-                <td data-ng-switch on="identifier.identifierScheme">
-                  <label data-ng-switch-when="ISBN">
-                    <input type="text" data-inplace class="ng-pristine ng-valid" data-ng-model="identifier.identifierNote" placeholder="Notering"/>
-                  </label>
-                </td>
-                <!--
-                <td data-ng-switch on="identifier.identifierScheme">
                   <label data-ng-switch-default>
                     <input data-inplace type="text" data-ng-model="identifier.identifierValue" placeholder="{{ identifier.identifierScheme }}"/>
                   </label>
                 </td>
                 <td data-ng-switch on="identifier.identifierScheme">
+                  <label data-ng-switch-when="ISBN">
+                    <input type="text" data-inplace class="ng-pristine ng-valid" data-ng-model="identifier.identifierNote" placeholder="Notering"/>
+                  </label>
                   <label data-ng-switch-default>
                     <input data-inplace class="ng-pristine ng-valid" type="text" data-ng-model="identifier.identifierNote" placeholder="Notering"/>
                   </label>
                 </td>
-                -->
               </tr>
             </tbody>
           </table>
