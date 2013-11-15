@@ -867,7 +867,7 @@ input[type="color"]:focus,
   box-shadow: none;
 }
 label {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .todo {
   display: none !important;
@@ -1094,7 +1094,7 @@ label textarea.title {
 }
 .lbl {
   display: block;
-  font-size: 9px;
+  font-size: 10px;
   color: #888;
   margin-bottom: 0;
   line-height: 16px;
@@ -1106,7 +1106,7 @@ label textarea.title {
   font-size: 12px;
   color: #1a8f72;
   margin-top: 2px;
-  line-height: 16px;
+  line-height: 14px;
   float: left;
   clear: both;
 }
